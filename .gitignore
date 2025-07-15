@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# VS Code
+.vscode/
+
+# Environment
+.env
+.venv/
+env/
+venv/
+
+# Output
+output/
+*.mp4
+
+# Models
+models/
+*.pt
+
+# System
+.DS_Store
+Thumbs.db
