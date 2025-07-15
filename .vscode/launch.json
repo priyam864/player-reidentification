@@ -1,0 +1,47 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Test System",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/test_system.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Python: Download Model",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/download_model.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Python: Run Player Re-ID",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.main",
+            "args": ["data/15sec_input_720p.mp4", "--save-comparison"],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Python: Run with Custom Args",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.main",
+            "args": ["${input:videoPath}", "--output", "output/tracked_video.mp4", "--save-comparison"],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "videoPath",
+            "description": "Path to input video file",
+            "default": "data/15sec_input_720p.mp4",
+            "type": "promptString"
+        }
+    ]
+}

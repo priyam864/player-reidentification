@@ -1,0 +1,62 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Install Dependencies",
+			"type": "shell",
+			"command": "pip",
+			"args": [
+				"install",
+				"-r",
+				"requirements.txt"
+			],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Download Model",
+			"type": "shell",
+			"command": "python",
+			"args": ["download_model.py"],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Test System",
+			"type": "shell",
+			"command": "python",
+			"args": ["test_system.py"],
+			"group": "test",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Player Re-ID (Demo)",
+			"type": "shell",
+			"command": "python",
+			"args": ["-m", "src.main", "data/15sec_input_720p.mp4", "--save-comparison"],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run with Custom Video",
+			"type": "shell",
+			"command": "python",
+			"args": ["-m", "src.main", "${input:videoPath}", "--output", "output/tracked_video.mp4", "--save-comparison"],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	],
+	"inputs": [
+		{
+			"id": "videoPath",
+			"description": "Path to input video file",
+			"default": "data/15sec_input_720p.mp4",
+			"type": "promptString"
+		}
+	]
+}
